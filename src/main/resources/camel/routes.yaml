@@ -36,7 +36,7 @@
             json: {}
 
         - to:
-            uri: http://mock-backend.local/api/internal/claims
+            uri: http://mock-backend/api/internal/claims
             parameters:
               bridgeEndpoint: true
               httpMethod: POST
