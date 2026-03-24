@@ -84,6 +84,12 @@
             <artifactId>camel-quarkus-bean</artifactId>
         </dependency>
 
+        <!-- Camel Quarkus: HTTP component (for outbound HTTP calls) -->
+        <dependency>
+            <groupId>org.apache.camel.quarkus</groupId>
+            <artifactId>camel-quarkus-http</artifactId>
+        </dependency>
+
         <!-- Quarkus: Health checks -->
         <dependency>
             <groupId>io.quarkus</groupId>
