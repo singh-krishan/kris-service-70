@@ -1,0 +1,47 @@
+- rest:
+    path: /claims
+    post:
+      - path: /submit
+        consumes: application/json
+        produces: application/json
+        to: direct:submitClaim
+
+- route:
+    id: claim-submit-route
+    from:
+      uri: direct:submitClaim
+      steps:
+        - unmarshal:
+            json: {}
+
+        - choice:
+            when:
+              - simple: "${body[claimId]} == null || ${body[claimId]} == ''"
+                steps:
+                  - setHeader:
+                      name: CamelHttpResponseCode
+                      constant: "400"
+                  - setBody:
+                      simple: |
+                        {
+                          "error": "claimId is required"
+                        }
+                  - stop: {}
+
+        - setHeader:
+            name: X-Correlation-Id
+            simple: "${exchangeId}"
+
+        - marshal:
+            json: {}
+
+        - to:
+            uri: http://mock-backend.local/api/internal/claims
+            parameters:
+              bridgeEndpoint: true
+              httpMethod: POST
+
+        - setHeader:
+            name: Content-Type
+            constant: application/json
+
