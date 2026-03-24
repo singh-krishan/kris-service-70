@@ -35,10 +35,12 @@
         - marshal:
             json: {}
 
+        - removeHeaders:
+            pattern: "CamelHttp*"
+
         - to:
             uri: http://mock-backend/api/internal/claims
             parameters:
-              bridgeEndpoint: true
               httpMethod: POST
 
         - setHeader:
