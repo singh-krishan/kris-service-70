@@ -66,6 +66,24 @@
             <artifactId>camel-quarkus-direct</artifactId>
         </dependency>
 
+        <!-- Camel Quarkus: REST DSL -->
+        <dependency>
+            <groupId>org.apache.camel.quarkus</groupId>
+            <artifactId>camel-quarkus-rest</artifactId>
+        </dependency>
+
+        <!-- Camel Quarkus: Jackson for JSON marshalling -->
+        <dependency>
+            <groupId>org.apache.camel.quarkus</groupId>
+            <artifactId>camel-quarkus-jackson</artifactId>
+        </dependency>
+
+        <!-- Camel Quarkus: Bean component -->
+        <dependency>
+            <groupId>org.apache.camel.quarkus</groupId>
+            <artifactId>camel-quarkus-bean</artifactId>
+        </dependency>
+
         <!-- Quarkus: Health checks -->
         <dependency>
             <groupId>io.quarkus</groupId>
